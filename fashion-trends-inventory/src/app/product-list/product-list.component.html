@@ -1,0 +1,19 @@
+<div class="product-list">
+  <h2>Inventario por Sucursal</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Categoría</th>
+        <th *ngFor="let branch of branches">{{ branch.name }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td *ngFor="let branch of branches">{{ getStockForBranch(product, branch.id) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
